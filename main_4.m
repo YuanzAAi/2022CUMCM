@@ -1,0 +1,70 @@
+clc;clear;
+tspan=[0 180];%总步长设置
+y0=[0 0 0 0];%初值设置
+%%四阶五阶RK法求解微分方程组(情形2）
+for i0=8;i=0:10000:100000;
+end
+B=i';
+[~,x_Q411]=ode45(@(t,x)odefun_Q4chuidang(t,x,B(1)),tspan,y0);x_Q411=abs(x_Q411(:,4)-x_Q411(:,2)).^(2);x_Q411=sum(x_Q411,1)/length(x_Q411);
+[~,x_Q412]=ode45(@(t,x)odefun_Q4chuidang(t,x,B(2)),tspan,y0);x_Q412=abs(x_Q412(:,4)-x_Q412(:,2)).^(2);x_Q412=sum(x_Q412,1)/length(x_Q412);
+[~,x_Q413]=ode45(@(t,x)odefun_Q4chuidang(t,x,B(3)),tspan,y0);x_Q413=abs(x_Q413(:,4)-x_Q413(:,2)).^(2);x_Q413=sum(x_Q413,1)/length(x_Q413);
+[~,x_Q414]=ode45(@(t,x)odefun_Q4chuidang(t,x,B(4)),tspan,y0);x_Q414=abs(x_Q414(:,4)-x_Q414(:,2)).^(2);x_Q414=sum(x_Q414,1)/length(x_Q414);
+[~,x_Q415]=ode45(@(t,x)odefun_Q4chuidang(t,x,B(5)),tspan,y0);x_Q415=abs(x_Q415(:,4)-x_Q415(:,2)).^(2);x_Q415=sum(x_Q415,1)/length(x_Q415);
+[~,x_Q416]=ode45(@(t,x)odefun_Q4chuidang(t,x,B(6)),tspan,y0);x_Q416=abs(x_Q416(:,4)-x_Q416(:,2)).^(2);x_Q416=sum(x_Q416,1)/length(x_Q416);
+[~,x_Q417]=ode45(@(t,x)odefun_Q4chuidang(t,x,B(7)),tspan,y0);x_Q417=abs(x_Q417(:,4)-x_Q417(:,2)).^(2);x_Q417=sum(x_Q417,1)/length(x_Q417);
+[~,x_Q418]=ode45(@(t,x)odefun_Q4chuidang(t,x,B(8)),tspan,y0);x_Q418=abs(x_Q418(:,4)-x_Q418(:,2)).^(2);x_Q418=sum(x_Q418,1)/length(x_Q418);
+[~,x_Q419]=ode45(@(t,x)odefun_Q4chuidang(t,x,B(9)),tspan,y0);x_Q419=abs(x_Q419(:,4)-x_Q419(:,2)).^(2);x_Q419=sum(x_Q419,1)/length(x_Q419);
+[~,x_Q4110]=ode45(@(t,x)odefun_Q4chuidang(t,x,B(10)),tspan,y0);x_Q4110=abs(x_Q4110(:,4)-x_Q4110(:,2)).^(2);x_Q4110=sum(x_Q4110,1)/length(x_Q4110);
+[~,x_Q4111]=ode45(@(t,x)odefun_Q4chuidang(t,x,B(11)),tspan,y0);x_Q4111=abs(x_Q4111(:,4)-x_Q4111(:,2)).^(2);x_Q4111=sum(x_Q4111,1)/length(x_Q4111);
+final=[x_Q411,x_Q412,x_Q413,x_Q414,x_Q415,x_Q416,x_Q417,x_Q418,x_Q419,x_Q4110,x_Q4111];
+final=final';
+final=[final(1,:)*B(1);
+    final(2,:)*B(2);
+    final(3,:)*B(3);
+    final(4,:)*B(4);
+    final(5,:)*B(5);
+    final(6,:)*B(6);
+    final(7,:)*B(7);
+    final(8,:)*B(8);
+    final(9,:)*B(9);
+    final(10,:)*B(10);
+    final(11,:)*B(11)];
+[~,J_Q4zongyao1]=ode45(@(t,J)odefun_Q4zongyao(t,J,0),tspan,y0);J_Q4zongyao1=abs(J_Q4zongyao1(:,4)*0.5-J_Q4zongyao1(:,2)).^(2);J_Q4zongyao1=sum(J_Q4zongyao1,1)/length(J_Q4zongyao1);
+[~,J_Q4zongyao2]=ode45(@(t,J)odefun_Q4zongyao(t,J,10000),tspan,y0);J_Q4zongyao2=abs(J_Q4zongyao2(:,4)*0.5-J_Q4zongyao2(:,2)).^(2);J_Q4zongyao2=sum(J_Q4zongyao2,1)/length(J_Q4zongyao2);
+[~,J_Q4zongyao3]=ode45(@(t,J)odefun_Q4zongyao(t,J,20000),tspan,y0);J_Q4zongyao3=abs(J_Q4zongyao3(:,4)*0.5-J_Q4zongyao3(:,2)).^(2);J_Q4zongyao3=sum(J_Q4zongyao3,1)/length(J_Q4zongyao3);
+[~,J_Q4zongyao4]=ode45(@(t,J)odefun_Q4zongyao(t,J,30000),tspan,y0);J_Q4zongyao4=abs(J_Q4zongyao4(:,4)*0.5-J_Q4zongyao4(:,2)).^(2);J_Q4zongyao4=sum(J_Q4zongyao4,1)/length(J_Q4zongyao4);
+[~,J_Q4zongyao5]=ode45(@(t,J)odefun_Q4zongyao(t,J,40000),tspan,y0);J_Q4zongyao5=abs(J_Q4zongyao5(:,4)*0.5-J_Q4zongyao5(:,2)).^(2);J_Q4zongyao5=sum(J_Q4zongyao5,1)/length(J_Q4zongyao5);
+[~,J_Q4zongyao6]=ode45(@(t,J)odefun_Q4zongyao(t,J,50000),tspan,y0);J_Q4zongyao6=abs(J_Q4zongyao6(:,4)*0.5-J_Q4zongyao6(:,2)).^(2);J_Q4zongyao6=sum(J_Q4zongyao6,1)/length(J_Q4zongyao6);
+[~,J_Q4zongyao7]=ode45(@(t,J)odefun_Q4zongyao(t,J,60000),tspan,y0);J_Q4zongyao7=abs(J_Q4zongyao7(:,4)*0.5-J_Q4zongyao7(:,2)).^(2);J_Q4zongyao7=sum(J_Q4zongyao7,1)/length(J_Q4zongyao7);
+[~,J_Q4zongyao8]=ode45(@(t,J)odefun_Q4zongyao(t,J,70000),tspan,y0);J_Q4zongyao8=abs(J_Q4zongyao8(:,4)*0.5-J_Q4zongyao8(:,2)).^(2);J_Q4zongyao8=sum(J_Q4zongyao8,1)/length(J_Q4zongyao8);
+[~,J_Q4zongyao9]=ode45(@(t,J)odefun_Q4zongyao(t,J,80000),tspan,y0);J_Q4zongyao9=abs(J_Q4zongyao9(:,4)*0.5-J_Q4zongyao9(:,2)).^(2);J_Q4zongyao9=sum(J_Q4zongyao9,1)/length(J_Q4zongyao9);
+[~,J_Q4zongyao10]=ode45(@(t,J)odefun_Q4zongyao(t,J,90000),tspan,y0);J_Q4zongyao10=abs(J_Q4zongyao10(:,4)*0.5-J_Q4zongyao10(:,2)).^(2);J_Q4zongyao10=sum(J_Q4zongyao10,1)/length(J_Q4zongyao10);
+[~,J_Q4zongyao11]=ode45(@(t,J)odefun_Q4zongyao(t,J,100000),tspan,y0);J_Q4zongyao11=abs(J_Q4zongyao11(:,4)*0.5-J_Q4zongyao11(:,2)).^(2);J_Q4zongyao11=sum(J_Q4zongyao11,1)/length(J_Q4zongyao11);
+final2=[J_Q4zongyao1,J_Q4zongyao2,J_Q4zongyao3,J_Q4zongyao4,J_Q4zongyao5,J_Q4zongyao6,J_Q4zongyao7,J_Q4zongyao8,J_Q4zongyao9,J_Q4zongyao10,J_Q4zongyao11];
+final2=final2';
+final2=[final2(1,:)*B(1);
+    final2(2,:)*B(2);
+    final2(3,:)*B(3);
+    final2(4,:)*B(4);
+    final2(5,:)*B(5);
+    final2(6,:)*B(6);
+    final2(7,:)*B(7);
+    final2(8,:)*B(8);
+    final2(9,:)*B(9);
+    final2(10,:)*B(10);
+    final2(11,:)*B(11)];
+BBP=zeros(11,11);
+for i=1:11
+    for j=1:11
+    BBP(i,j)=final(i,1)+final2(j,1);
+    end
+end
+%%绘制三维图，观测P和B、alpha的关系
+y=B(:,1);
+x=B(:,1);
+z=BBP;
+mesh(x,y,z);
+xlabel('直线阻尼器阻尼系数的取值')
+ylabel('旋转阻尼器阻尼系数的取值')
+zlabel('PTO总输出功率P')
+title('B-Bx-P图')

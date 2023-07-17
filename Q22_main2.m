@@ -1,0 +1,116 @@
+clc;clear;
+tspan=[0 180];%总步长设置
+y0=[0 0 0 0];%初值设置
+%%四阶五阶RK法求解微分方程组(情形2）
+for i0=8;i=0:10000:100000;
+end
+B=i';alpha=[0;0.1;0.3;0.5;0.7;0.9;1];
+[~,x_Q2211]=ode45(@(t,x)odefun_Q22(t,x,B(1),alpha(1)),tspan,y0);x_Q2211=abs(x_Q2211(:,4)-x_Q2211(:,2)).^(2+alpha(1));x_Q2211=sum(x_Q2211,1)/length(x_Q2211);
+[~,x_Q2221]=ode45(@(t,x)odefun_Q22(t,x,B(1),alpha(2)),tspan,y0);x_Q2221=abs(x_Q2221(:,4)-x_Q2221(:,2)).^(2+alpha(2));x_Q2221=sum(x_Q2221,1)/length(x_Q2221);
+[~,x_Q2231]=ode45(@(t,x)odefun_Q22(t,x,B(1),alpha(3)),tspan,y0);x_Q2231=abs(x_Q2231(:,4)-x_Q2231(:,2)).^(2+alpha(3));x_Q2231=sum(x_Q2231,1)/length(x_Q2231);
+[~,x_Q2241]=ode45(@(t,x)odefun_Q22(t,x,B(1),alpha(4)),tspan,y0);x_Q2241=abs(x_Q2241(:,4)-x_Q2241(:,2)).^(2+alpha(4));x_Q2241=sum(x_Q2241,1)/length(x_Q2241);
+[~,x_Q2251]=ode45(@(t,x)odefun_Q22(t,x,B(1),alpha(5)),tspan,y0);x_Q2251=abs(x_Q2251(:,4)-x_Q2251(:,2)).^(2+alpha(5));x_Q2251=sum(x_Q2251,1)/length(x_Q2251);
+[~,x_Q2261]=ode45(@(t,x)odefun_Q22(t,x,B(1),alpha(6)),tspan,y0);x_Q2261=abs(x_Q2261(:,4)-x_Q2261(:,2)).^(2+alpha(6));x_Q2261=sum(x_Q2261,1)/length(x_Q2261);
+[~,x_Q2271]=ode45(@(t,x)odefun_Q22(t,x,B(1),alpha(7)),tspan,y0);x_Q2271=abs(x_Q2271(:,4)-x_Q2271(:,2)).^(2+alpha(7));x_Q2271=sum(x_Q2271,1)/length(x_Q2271);
+[~,x_Q2212]=ode45(@(t,x)odefun_Q22(t,x,B(2),alpha(1)),tspan,y0);x_Q2212=abs(x_Q2212(:,4)-x_Q2212(:,2)).^(2+alpha(1));x_Q2212=sum(x_Q2212,1)/length(x_Q2212);
+[~,x_Q2222]=ode45(@(t,x)odefun_Q22(t,x,B(2),alpha(2)),tspan,y0);x_Q2222=abs(x_Q2222(:,4)-x_Q2222(:,2)).^(2+alpha(2));x_Q2222=sum(x_Q2222,1)/length(x_Q2222);
+[~,x_Q2232]=ode45(@(t,x)odefun_Q22(t,x,B(2),alpha(3)),tspan,y0);x_Q2232=abs(x_Q2232(:,4)-x_Q2232(:,2)).^(2+alpha(3));x_Q2232=sum(x_Q2232,1)/length(x_Q2232);
+[~,x_Q2242]=ode45(@(t,x)odefun_Q22(t,x,B(2),alpha(4)),tspan,y0);x_Q2242=abs(x_Q2242(:,4)-x_Q2242(:,2)).^(2+alpha(4));x_Q2242=sum(x_Q2242,1)/length(x_Q2242);
+[~,x_Q2252]=ode45(@(t,x)odefun_Q22(t,x,B(2),alpha(5)),tspan,y0);x_Q2252=abs(x_Q2252(:,4)-x_Q2252(:,2)).^(2+alpha(5));x_Q2252=sum(x_Q2252,1)/length(x_Q2252);
+[~,x_Q2262]=ode45(@(t,x)odefun_Q22(t,x,B(2),alpha(6)),tspan,y0);x_Q2262=abs(x_Q2262(:,4)-x_Q2262(:,2)).^(2+alpha(6));x_Q2262=sum(x_Q2262,1)/length(x_Q2262);
+[~,x_Q2272]=ode45(@(t,x)odefun_Q22(t,x,B(2),alpha(7)),tspan,y0);x_Q2272=abs(x_Q2272(:,4)-x_Q2272(:,2)).^(2+alpha(7));x_Q2272=sum(x_Q2272,1)/length(x_Q2272);
+[~,x_Q2213]=ode45(@(t,x)odefun_Q22(t,x,B(3),alpha(1)),tspan,y0);x_Q2213=abs(x_Q2213(:,4)-x_Q2213(:,2)).^(2+alpha(1));x_Q2213=sum(x_Q2213,1)/length(x_Q2213);
+[~,x_Q2223]=ode45(@(t,x)odefun_Q22(t,x,B(3),alpha(2)),tspan,y0);x_Q2223=abs(x_Q2223(:,4)-x_Q2223(:,2)).^(2+alpha(2));x_Q2223=sum(x_Q2223,1)/length(x_Q2223);
+[~,x_Q2233]=ode45(@(t,x)odefun_Q22(t,x,B(3),alpha(3)),tspan,y0);x_Q2233=abs(x_Q2233(:,4)-x_Q2233(:,2)).^(2+alpha(3));x_Q2233=sum(x_Q2233,1)/length(x_Q2233);
+[~,x_Q2243]=ode45(@(t,x)odefun_Q22(t,x,B(3),alpha(4)),tspan,y0);x_Q2243=abs(x_Q2243(:,4)-x_Q2243(:,2)).^(2+alpha(4));x_Q2243=sum(x_Q2243,1)/length(x_Q2243);
+[~,x_Q2253]=ode45(@(t,x)odefun_Q22(t,x,B(3),alpha(5)),tspan,y0);x_Q2253=abs(x_Q2253(:,4)-x_Q2253(:,2)).^(2+alpha(5));x_Q2253=sum(x_Q2253,1)/length(x_Q2253);
+[~,x_Q2263]=ode45(@(t,x)odefun_Q22(t,x,B(3),alpha(6)),tspan,y0);x_Q2263=abs(x_Q2263(:,4)-x_Q2263(:,2)).^(2+alpha(6));x_Q2263=sum(x_Q2263,1)/length(x_Q2263);
+[~,x_Q2273]=ode45(@(t,x)odefun_Q22(t,x,B(3),alpha(7)),tspan,y0);x_Q2273=abs(x_Q2273(:,4)-x_Q2273(:,2)).^(2+alpha(7));x_Q2273=sum(x_Q2273,1)/length(x_Q2273);
+[~,x_Q2214]=ode45(@(t,x)odefun_Q22(t,x,B(4),alpha(1)),tspan,y0);x_Q2214=abs(x_Q2214(:,4)-x_Q2214(:,2)).^(2+alpha(1));x_Q2214=sum(x_Q2214,1)/length(x_Q2214);
+[~,x_Q2224]=ode45(@(t,x)odefun_Q22(t,x,B(4),alpha(2)),tspan,y0);x_Q2224=abs(x_Q2224(:,4)-x_Q2224(:,2)).^(2+alpha(2));x_Q2224=sum(x_Q2224,1)/length(x_Q2224);
+[~,x_Q2234]=ode45(@(t,x)odefun_Q22(t,x,B(4),alpha(3)),tspan,y0);x_Q2234=abs(x_Q2234(:,4)-x_Q2234(:,2)).^(2+alpha(3));x_Q2234=sum(x_Q2234,1)/length(x_Q2234);
+[~,x_Q2244]=ode45(@(t,x)odefun_Q22(t,x,B(4),alpha(4)),tspan,y0);x_Q2244=abs(x_Q2244(:,4)-x_Q2244(:,2)).^(2+alpha(4));x_Q2244=sum(x_Q2244,1)/length(x_Q2244);
+[~,x_Q2254]=ode45(@(t,x)odefun_Q22(t,x,B(4),alpha(5)),tspan,y0);x_Q2254=abs(x_Q2254(:,4)-x_Q2254(:,2)).^(2+alpha(5));x_Q2254=sum(x_Q2254,1)/length(x_Q2254);
+[~,x_Q2264]=ode45(@(t,x)odefun_Q22(t,x,B(4),alpha(6)),tspan,y0);x_Q2264=abs(x_Q2264(:,4)-x_Q2264(:,2)).^(2+alpha(6));x_Q2264=sum(x_Q2264,1)/length(x_Q2264);
+[~,x_Q2274]=ode45(@(t,x)odefun_Q22(t,x,B(4),alpha(7)),tspan,y0);x_Q2274=abs(x_Q2274(:,4)-x_Q2274(:,2)).^(2+alpha(7));x_Q2274=sum(x_Q2274,1)/length(x_Q2274);
+[~,x_Q2215]=ode45(@(t,x)odefun_Q22(t,x,B(5),alpha(1)),tspan,y0);x_Q2215=abs(x_Q2215(:,4)-x_Q2215(:,2)).^(2+alpha(1));x_Q2215=sum(x_Q2215,1)/length(x_Q2215);
+[~,x_Q2225]=ode45(@(t,x)odefun_Q22(t,x,B(5),alpha(2)),tspan,y0);x_Q2225=abs(x_Q2225(:,4)-x_Q2225(:,2)).^(2+alpha(2));x_Q2225=sum(x_Q2225,1)/length(x_Q2225);
+[~,x_Q2235]=ode45(@(t,x)odefun_Q22(t,x,B(5),alpha(3)),tspan,y0);x_Q2235=abs(x_Q2235(:,4)-x_Q2235(:,2)).^(2+alpha(3));x_Q2235=sum(x_Q2235,1)/length(x_Q2235);
+[~,x_Q2245]=ode45(@(t,x)odefun_Q22(t,x,B(5),alpha(4)),tspan,y0);x_Q2245=abs(x_Q2245(:,4)-x_Q2245(:,2)).^(2+alpha(4));x_Q2245=sum(x_Q2245,1)/length(x_Q2245);
+[~,x_Q2255]=ode45(@(t,x)odefun_Q22(t,x,B(5),alpha(5)),tspan,y0);x_Q2255=abs(x_Q2255(:,4)-x_Q2255(:,2)).^(2+alpha(5));x_Q2255=sum(x_Q2255,1)/length(x_Q2255);
+[~,x_Q2265]=ode45(@(t,x)odefun_Q22(t,x,B(5),alpha(6)),tspan,y0);x_Q2265=abs(x_Q2265(:,4)-x_Q2265(:,2)).^(2+alpha(6));x_Q2265=sum(x_Q2265,1)/length(x_Q2265);
+[~,x_Q2275]=ode45(@(t,x)odefun_Q22(t,x,B(5),alpha(7)),tspan,y0);x_Q2275=abs(x_Q2275(:,4)-x_Q2275(:,2)).^(2+alpha(7));x_Q2275=sum(x_Q2275,1)/length(x_Q2275);
+[~,x_Q2216]=ode45(@(t,x)odefun_Q22(t,x,B(6),alpha(1)),tspan,y0);x_Q2216=abs(x_Q2216(:,4)-x_Q2216(:,2)).^(2+alpha(1));x_Q2216=sum(x_Q2216,1)/length(x_Q2216);
+[~,x_Q2226]=ode45(@(t,x)odefun_Q22(t,x,B(6),alpha(2)),tspan,y0);x_Q2226=abs(x_Q2226(:,4)-x_Q2226(:,2)).^(2+alpha(2));x_Q2226=sum(x_Q2226,1)/length(x_Q2226);
+[~,x_Q2236]=ode45(@(t,x)odefun_Q22(t,x,B(6),alpha(3)),tspan,y0);x_Q2236=abs(x_Q2236(:,4)-x_Q2236(:,2)).^(2+alpha(3));x_Q2236=sum(x_Q2236,1)/length(x_Q2236);
+[~,x_Q2246]=ode45(@(t,x)odefun_Q22(t,x,B(6),alpha(4)),tspan,y0);x_Q2246=abs(x_Q2246(:,4)-x_Q2246(:,2)).^(2+alpha(4));x_Q2246=sum(x_Q2246,1)/length(x_Q2246);
+[~,x_Q2256]=ode45(@(t,x)odefun_Q22(t,x,B(6),alpha(5)),tspan,y0);x_Q2256=abs(x_Q2256(:,4)-x_Q2256(:,2)).^(2+alpha(5));x_Q2256=sum(x_Q2256,1)/length(x_Q2256);
+[~,x_Q2266]=ode45(@(t,x)odefun_Q22(t,x,B(6),alpha(6)),tspan,y0);x_Q2266=abs(x_Q2266(:,4)-x_Q2266(:,2)).^(2+alpha(6));x_Q2266=sum(x_Q2266,1)/length(x_Q2266);
+[~,x_Q2276]=ode45(@(t,x)odefun_Q22(t,x,B(6),alpha(7)),tspan,y0);x_Q2276=abs(x_Q2276(:,4)-x_Q2276(:,2)).^(2+alpha(7));x_Q2276=sum(x_Q2276,1)/length(x_Q2276);
+[~,x_Q2217]=ode45(@(t,x)odefun_Q22(t,x,B(7),alpha(1)),tspan,y0);x_Q2217=abs(x_Q2217(:,4)-x_Q2217(:,2)).^(2+alpha(1));x_Q2217=sum(x_Q2217,1)/length(x_Q2217);
+[~,x_Q2227]=ode45(@(t,x)odefun_Q22(t,x,B(7),alpha(2)),tspan,y0);x_Q2227=abs(x_Q2227(:,4)-x_Q2227(:,2)).^(2+alpha(2));x_Q2227=sum(x_Q2227,1)/length(x_Q2227);
+[~,x_Q2237]=ode45(@(t,x)odefun_Q22(t,x,B(7),alpha(3)),tspan,y0);x_Q2237=abs(x_Q2237(:,4)-x_Q2237(:,2)).^(2+alpha(3));x_Q2237=sum(x_Q2237,1)/length(x_Q2237);
+[~,x_Q2247]=ode45(@(t,x)odefun_Q22(t,x,B(7),alpha(4)),tspan,y0);x_Q2247=abs(x_Q2247(:,4)-x_Q2247(:,2)).^(2+alpha(4));x_Q2247=sum(x_Q2247,1)/length(x_Q2247);
+[~,x_Q2257]=ode45(@(t,x)odefun_Q22(t,x,B(7),alpha(5)),tspan,y0);x_Q2257=abs(x_Q2257(:,4)-x_Q2257(:,2)).^(2+alpha(5));x_Q2257=sum(x_Q2257,1)/length(x_Q2257);
+[~,x_Q2267]=ode45(@(t,x)odefun_Q22(t,x,B(7),alpha(6)),tspan,y0);x_Q2267=abs(x_Q2267(:,4)-x_Q2267(:,2)).^(2+alpha(6));x_Q2267=sum(x_Q2267,1)/length(x_Q2267);
+[~,x_Q2277]=ode45(@(t,x)odefun_Q22(t,x,B(7),alpha(7)),tspan,y0);x_Q2277=abs(x_Q2277(:,4)-x_Q2277(:,2)).^(2+alpha(7));x_Q2277=sum(x_Q2277,1)/length(x_Q2277);
+[~,x_Q2218]=ode45(@(t,x)odefun_Q22(t,x,B(8),alpha(1)),tspan,y0);x_Q2218=abs(x_Q2218(:,4)-x_Q2218(:,2)).^(2+alpha(1));x_Q2218=sum(x_Q2218,1)/length(x_Q2218);
+[~,x_Q2228]=ode45(@(t,x)odefun_Q22(t,x,B(8),alpha(2)),tspan,y0);x_Q2228=abs(x_Q2228(:,4)-x_Q2228(:,2)).^(2+alpha(2));x_Q2228=sum(x_Q2228,1)/length(x_Q2228);
+[~,x_Q2238]=ode45(@(t,x)odefun_Q22(t,x,B(8),alpha(3)),tspan,y0);x_Q2238=abs(x_Q2238(:,4)-x_Q2238(:,2)).^(2+alpha(3));x_Q2238=sum(x_Q2238,1)/length(x_Q2238);
+[~,x_Q2248]=ode45(@(t,x)odefun_Q22(t,x,B(8),alpha(4)),tspan,y0);x_Q2248=abs(x_Q2248(:,4)-x_Q2248(:,2)).^(2+alpha(4));x_Q2248=sum(x_Q2248,1)/length(x_Q2248);
+[~,x_Q2258]=ode45(@(t,x)odefun_Q22(t,x,B(8),alpha(5)),tspan,y0);x_Q2258=abs(x_Q2258(:,4)-x_Q2258(:,2)).^(2+alpha(5));x_Q2258=sum(x_Q2258,1)/length(x_Q2258);
+[~,x_Q2268]=ode45(@(t,x)odefun_Q22(t,x,B(8),alpha(6)),tspan,y0);x_Q2268=abs(x_Q2268(:,4)-x_Q2268(:,2)).^(2+alpha(6));x_Q2268=sum(x_Q2268,1)/length(x_Q2268);
+[~,x_Q2278]=ode45(@(t,x)odefun_Q22(t,x,B(8),alpha(7)),tspan,y0);x_Q2278=abs(x_Q2278(:,4)-x_Q2278(:,2)).^(2+alpha(7));x_Q2278=sum(x_Q2278,1)/length(x_Q2278);
+[~,x_Q2219]=ode45(@(t,x)odefun_Q22(t,x,B(9),alpha(1)),tspan,y0);x_Q2219=abs(x_Q2219(:,4)-x_Q2219(:,2)).^(2+alpha(1));x_Q2219=sum(x_Q2219,1)/length(x_Q2219);
+[~,x_Q2229]=ode45(@(t,x)odefun_Q22(t,x,B(9),alpha(2)),tspan,y0);x_Q2229=abs(x_Q2229(:,4)-x_Q2229(:,2)).^(2+alpha(2));x_Q2229=sum(x_Q2229,1)/length(x_Q2229);
+[~,x_Q2239]=ode45(@(t,x)odefun_Q22(t,x,B(9),alpha(3)),tspan,y0);x_Q2239=abs(x_Q2239(:,4)-x_Q2239(:,2)).^(2+alpha(3));x_Q2239=sum(x_Q2239,1)/length(x_Q2239);
+[~,x_Q2249]=ode45(@(t,x)odefun_Q22(t,x,B(9),alpha(4)),tspan,y0);x_Q2249=abs(x_Q2249(:,4)-x_Q2249(:,2)).^(2+alpha(4));x_Q2249=sum(x_Q2249,1)/length(x_Q2249);
+[~,x_Q2259]=ode45(@(t,x)odefun_Q22(t,x,B(9),alpha(5)),tspan,y0);x_Q2259=abs(x_Q2259(:,4)-x_Q2259(:,2)).^(2+alpha(5));x_Q2259=sum(x_Q2259,1)/length(x_Q2259);
+[~,x_Q2269]=ode45(@(t,x)odefun_Q22(t,x,B(9),alpha(6)),tspan,y0);x_Q2269=abs(x_Q2269(:,4)-x_Q2269(:,2)).^(2+alpha(6));x_Q2269=sum(x_Q2269,1)/length(x_Q2269);
+[~,x_Q2279]=ode45(@(t,x)odefun_Q22(t,x,B(9),alpha(7)),tspan,y0);x_Q2279=abs(x_Q2279(:,4)-x_Q2279(:,2)).^(2+alpha(7));x_Q2279=sum(x_Q2279,1)/length(x_Q2279);
+[~,x_Q22110]=ode45(@(t,x)odefun_Q22(t,x,B(10),alpha(1)),tspan,y0);x_Q22110=abs(x_Q22110(:,4)-x_Q22110(:,2)).^(2+alpha(1));x_Q22110=sum(x_Q22110,1)/length(x_Q22110);
+[~,x_Q22210]=ode45(@(t,x)odefun_Q22(t,x,B(10),alpha(2)),tspan,y0);x_Q22210=abs(x_Q22210(:,4)-x_Q22210(:,2)).^(2+alpha(2));x_Q22210=sum(x_Q22210,1)/length(x_Q22210);
+[~,x_Q22310]=ode45(@(t,x)odefun_Q22(t,x,B(10),alpha(3)),tspan,y0);x_Q22310=abs(x_Q22310(:,4)-x_Q22310(:,2)).^(2+alpha(3));x_Q22310=sum(x_Q22310,1)/length(x_Q22310);
+[~,x_Q22410]=ode45(@(t,x)odefun_Q22(t,x,B(10),alpha(4)),tspan,y0);x_Q22410=abs(x_Q22410(:,4)-x_Q22410(:,2)).^(2+alpha(4));x_Q22410=sum(x_Q22410,1)/length(x_Q22410);
+[~,x_Q22510]=ode45(@(t,x)odefun_Q22(t,x,B(10),alpha(5)),tspan,y0);x_Q22510=abs(x_Q22510(:,4)-x_Q22510(:,2)).^(2+alpha(5));x_Q22510=sum(x_Q22510,1)/length(x_Q22510);
+[~,x_Q22610]=ode45(@(t,x)odefun_Q22(t,x,B(10),alpha(6)),tspan,y0);x_Q22610=abs(x_Q22610(:,4)-x_Q22610(:,2)).^(2+alpha(6));x_Q22610=sum(x_Q22610,1)/length(x_Q22610);
+[~,x_Q22710]=ode45(@(t,x)odefun_Q22(t,x,B(10),alpha(7)),tspan,y0);x_Q22710=abs(x_Q22710(:,4)-x_Q22710(:,2)).^(2+alpha(7));x_Q22710=sum(x_Q22710,1)/length(x_Q22710);
+[~,x_Q22111]=ode45(@(t,x)odefun_Q22(t,x,B(11),alpha(1)),tspan,y0);x_Q22111=abs(x_Q22111(:,4)-x_Q22111(:,2)).^(2+alpha(1));x_Q22111=sum(x_Q22111,1)/length(x_Q22111);
+[~,x_Q22211]=ode45(@(t,x)odefun_Q22(t,x,B(11),alpha(2)),tspan,y0);x_Q22211=abs(x_Q22211(:,4)-x_Q22211(:,2)).^(2+alpha(2));x_Q22211=sum(x_Q22211,1)/length(x_Q22211);
+[~,x_Q22311]=ode45(@(t,x)odefun_Q22(t,x,B(11),alpha(3)),tspan,y0);x_Q22311=abs(x_Q22311(:,4)-x_Q22311(:,2)).^(2+alpha(3));x_Q22311=sum(x_Q22311,1)/length(x_Q22311);
+[~,x_Q22411]=ode45(@(t,x)odefun_Q22(t,x,B(11),alpha(4)),tspan,y0);x_Q22411=abs(x_Q22411(:,4)-x_Q22411(:,2)).^(2+alpha(4));x_Q22411=sum(x_Q22411,1)/length(x_Q22411);
+[~,x_Q22511]=ode45(@(t,x)odefun_Q22(t,x,B(11),alpha(5)),tspan,y0);x_Q22511=abs(x_Q22511(:,4)-x_Q22511(:,2)).^(2+alpha(5));x_Q22511=sum(x_Q22511,1)/length(x_Q22511);
+[~,x_Q22611]=ode45(@(t,x)odefun_Q22(t,x,B(11),alpha(6)),tspan,y0);x_Q22611=abs(x_Q22611(:,4)-x_Q22611(:,2)).^(2+alpha(6));x_Q22611=sum(x_Q22611,1)/length(x_Q22611);
+[~,x_Q22711]=ode45(@(t,x)odefun_Q22(t,x,B(11),alpha(7)),tspan,y0);x_Q22711=abs(x_Q22711(:,4)-x_Q22711(:,2)).^(2+alpha(7));x_Q22711=sum(x_Q22711,1)/length(x_Q22711);
+%%计算最后的矩阵即B-alpha-P矩阵
+final=[x_Q2211,x_Q2221,x_Q2231,x_Q2241,x_Q2251,x_Q2261,x_Q2271;
+    x_Q2212,x_Q2222,x_Q2232,x_Q2242,x_Q2252,x_Q2262,x_Q2272;
+    x_Q2213,x_Q2223,x_Q2233,x_Q2243,x_Q2253,x_Q2263,x_Q2273;
+    x_Q2214,x_Q2224,x_Q2234,x_Q2244,x_Q2254,x_Q2264,x_Q2274;
+    x_Q2215,x_Q2225,x_Q2235,x_Q2245,x_Q2255,x_Q2265,x_Q2275;
+    x_Q2216,x_Q2226,x_Q2236,x_Q2246,x_Q2256,x_Q2266,x_Q2276;
+    x_Q2217,x_Q2227,x_Q2237,x_Q2247,x_Q2257,x_Q2267,x_Q2277;
+    x_Q2218,x_Q2228,x_Q2238,x_Q2248,x_Q2258,x_Q2268,x_Q2278;
+    x_Q2219,x_Q2229,x_Q2239,x_Q2249,x_Q2259,x_Q2269,x_Q2279;
+    x_Q22110,x_Q22210,x_Q22310,x_Q22410,x_Q22510,x_Q22610,x_Q22710;
+    x_Q22111,x_Q22211,x_Q22311,x_Q22411,x_Q22511,x_Q22611,x_Q22711];
+final=[final(1,:)*B(1);
+    final(2,:)*B(2);
+    final(3,:)*B(3);
+    final(4,:)*B(4);
+    final(5,:)*B(5);
+    final(6,:)*B(6);
+    final(7,:)*B(7);
+    final(8,:)*B(8);
+    final(9,:)*B(9);
+    final(10,:)*B(10);
+    final(11,:)*B(11)];
+%%绘制三维图，观测P和B、alpha的关系
+y=B(:,1);
+x=alpha(:,1);
+z=final;
+mesh(x,y,z);
+xlabel('alpha的取值')
+ylabel('B的取值')
+zlabel('PTO平均输出功率P')
+title('P-B-alpha图')
